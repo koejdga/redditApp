@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F3214BA2B7ED1BD00FA6C32 /* PostListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3214B92B7ED1BD00FA6C32 /* PostListViewController.swift */; };
+		2F3214BC2B7ED2C100FA6C32 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3214BB2B7ED2C100FA6C32 /* PostTableViewCell.swift */; };
+		2F3214C22B7EDFF700FA6C32 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3214C12B7EDFF700FA6C32 /* PostView.swift */; };
+		2F3214C42B7EE00C00FA6C32 /* PostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F3214C32B7EE00C00FA6C32 /* PostView.xib */; };
+		2F3214C62B7EF29C00FA6C32 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3214C52B7EF29C00FA6C32 /* Post.swift */; };
 		2F98306A2B7AE95A00FFF6B5 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 2F9830692B7AE95A00FFF6B5 /* SDWebImage */; };
 		2F98306C2B7AE95A00FFF6B5 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2F98306B2B7AE95A00FFF6B5 /* SDWebImageMapKit */; };
 		2FC6F3D92B7A40E300485F8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC6F3D82B7A40E300485F8D /* AppDelegate.swift */; };
@@ -18,6 +23,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F3214B92B7ED1BD00FA6C32 /* PostListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewController.swift; sourceTree = "<group>"; };
+		2F3214BB2B7ED2C100FA6C32 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		2F3214C12B7EDFF700FA6C32 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
+		2F3214C32B7EE00C00FA6C32 /* PostView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostView.xib; sourceTree = "<group>"; };
+		2F3214C52B7EF29C00FA6C32 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		2FC6F3D52B7A40E300485F8D /* RedditApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedditApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FC6F3D82B7A40E300485F8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FC6F3DA2B7A40E300485F8D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,7 +73,12 @@
 				2FC6F3D82B7A40E300485F8D /* AppDelegate.swift */,
 				2FC6F3DA2B7A40E300485F8D /* SceneDelegate.swift */,
 				2FC6F3DC2B7A40E300485F8D /* PostViewController.swift */,
+				2F3214B92B7ED1BD00FA6C32 /* PostListViewController.swift */,
+				2F3214BB2B7ED2C100FA6C32 /* PostTableViewCell.swift */,
 				2FC6F3DE2B7A40E300485F8D /* Main.storyboard */,
+				2F3214C12B7EDFF700FA6C32 /* PostView.swift */,
+				2F3214C52B7EF29C00FA6C32 /* Post.swift */,
+				2F3214C32B7EE00C00FA6C32 /* PostView.xib */,
 				2FC6F3E12B7A40E400485F8D /* Assets.xcassets */,
 				2FC6F3E32B7A40E400485F8D /* LaunchScreen.storyboard */,
 				2FC6F3E62B7A40E400485F8D /* Info.plist */,
@@ -138,6 +153,7 @@
 			files = (
 				2FC6F3E52B7A40E400485F8D /* LaunchScreen.storyboard in Resources */,
 				2FC6F3E22B7A40E400485F8D /* Assets.xcassets in Resources */,
+				2F3214C42B7EE00C00FA6C32 /* PostView.xib in Resources */,
 				2FC6F3E02B7A40E300485F8D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,8 +165,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F3214BA2B7ED1BD00FA6C32 /* PostListViewController.swift in Sources */,
 				2FC6F3DD2B7A40E300485F8D /* PostViewController.swift in Sources */,
+				2F3214BC2B7ED2C100FA6C32 /* PostTableViewCell.swift in Sources */,
 				2FC6F3D92B7A40E300485F8D /* AppDelegate.swift in Sources */,
+				2F3214C22B7EDFF700FA6C32 /* PostView.swift in Sources */,
+				2F3214C62B7EF29C00FA6C32 /* Post.swift in Sources */,
 				2FC6F3DB2B7A40E300485F8D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
