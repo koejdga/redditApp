@@ -8,8 +8,14 @@
 import SDWebImage
 import UIKit
 
-class PostViewController: UIViewController {
+class PostDetailsViewController: UIViewController {
+    @IBOutlet var postView: PostView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+
+    func configure(with post: Post) {
+        postView.configure(with: post)
     }
 }

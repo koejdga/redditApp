@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0ZG-Ly-Hdp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Kal-OH-mwf">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
@@ -16,34 +16,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="330" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="L0c-lY-jsz">
-                                <rect key="frame" x="0.0" y="110.66666666666669" width="393" height="707.33333333333326"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="535" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="L0c-lY-jsz">
+                                <rect key="frame" x="0.0" y="154.66666666666669" width="393" height="663.33333333333326"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="redditPostCell" id="REq-pl-4bf" customClass="PostTableViewCell" customModule="RedditApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="330"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reddit_post_cell" rowHeight="535" id="REq-pl-4bf" customClass="PostTableViewCell" customModule="RedditApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="535"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="REq-pl-4bf" id="2Si-dp-3gj">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="330"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="535"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fDk-8H-k2s" customClass="PostView" customModule="RedditApp" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="11" width="353" height="324"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="324"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="324" id="Zeh-L4-8bv"/>
-                                                    </constraints>
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="fDk-8H-k2s" firstAttribute="leading" secondItem="2Si-dp-3gj" secondAttribute="leadingMargin" id="Q3x-Cj-Ll5"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="fDk-8H-k2s" secondAttribute="trailing" id="cRb-kG-UE3"/>
-                                                <constraint firstItem="fDk-8H-k2s" firstAttribute="top" secondItem="2Si-dp-3gj" secondAttribute="topMargin" id="yTb-8b-zXA"/>
+                                                <constraint firstItem="fDk-8H-k2s" firstAttribute="leading" secondItem="2Si-dp-3gj" secondAttribute="leading" id="WZx-hf-tFA"/>
+                                                <constraint firstAttribute="trailing" secondItem="fDk-8H-k2s" secondAttribute="trailing" id="hq1-wf-Wxs"/>
+                                                <constraint firstItem="fDk-8H-k2s" firstAttribute="top" secondItem="2Si-dp-3gj" secondAttribute="top" id="vZU-rj-3Ze"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstItem="fDk-8H-k2s" firstAttribute="height" secondItem="REq-pl-4bf" secondAttribute="height" multiplier="0.605607" id="fDg-Yg-Z00"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="postView" destination="fDk-8H-k2s" id="6ne-PP-RTR"/>
-                                            <segue destination="BYZ-38-t0r" kind="showDetail" id="lxy-q9-Qyg"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="go_to_post_details" id="Rs8-TK-x0A"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -53,13 +53,13 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/r/iOS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pt2-Ec-fUv">
-                                <rect key="frame" x="169.66666666666666" y="74" width="54" height="26.666666666666671"/>
+                                <rect key="frame" x="169.66666666666666" y="118.00000000000001" width="54" height="26.666666666666671"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OlU-U3-izm">
-                                <rect key="frame" x="333" y="74" width="50" height="34"/>
+                                <rect key="frame" x="333" y="118" width="50" height="34"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="bookmark.circle" catalog="system"/>
                             </button>
@@ -78,7 +78,9 @@
                             <constraint firstItem="C7g-eY-O0e" firstAttribute="trailing" secondItem="L0c-lY-jsz" secondAttribute="trailing" id="wVr-4n-1lX"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="dne-JN-0Ta"/>
                     <connections>
+                        <outlet property="subredditLabel" destination="Pt2-Ec-fUv" id="aE2-Ss-5ZD"/>
                         <outlet property="tableView" destination="L0c-lY-jsz" id="Lh7-C0-6F3"/>
                     </connections>
                 </viewController>
@@ -86,32 +88,54 @@
             </objects>
             <point key="canvasLocation" x="-846.56488549618314" y="2.8169014084507045"/>
         </scene>
-        <!--Post View Controller-->
+        <!--Post Details View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="PostViewController" customModule="RedditApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="PostDetailsViewController" customModule="RedditApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iRG-gr-A4W" customClass="PostView" customModule="RedditApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="390" width="393" height="128"/>
+                                <rect key="frame" x="0.0" y="158.66666666666663" width="393" height="535"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="535" id="yhG-ft-rSV"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="iRG-gr-A4W" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="AWt-b3-ru1"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iRG-gr-A4W" secondAttribute="trailing" id="IRd-gV-Q0H"/>
                             <constraint firstItem="iRG-gr-A4W" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="wB5-Bi-Kom"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iRG-gr-A4W" secondAttribute="trailing" id="xkw-4z-5AL"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qqN-Nk-m9m"/>
+                    <connections>
+                        <outlet property="postView" destination="iRG-gr-A4W" id="cLT-wj-fRR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="179" y="3"/>
+            <point key="canvasLocation" x="-15" y="3"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="IE0-Xl-K6j">
+            <objects>
+                <navigationController id="Kal-OH-mwf" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cwh-Bt-glB">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="0ZG-Ly-Hdp" kind="relationship" relationship="rootViewController" id="W77-QC-GIj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rSg-n4-sci" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1654" y="3"/>
         </scene>
     </scenes>
     <resources>

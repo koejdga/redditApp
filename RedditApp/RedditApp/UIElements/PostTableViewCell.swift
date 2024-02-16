@@ -21,7 +21,11 @@ class PostTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func configure(for post: Post) {
-        postView.configure(for: post)
+    override func prepareForReuse() {
+        postView.goToDefault()
+    }
+
+    func configure(with post: Post) {
+        postView.configure(with: post)
     }
 }

@@ -36,17 +36,33 @@ class PostView: UIView {
         contentView.fixInView(self)
     }
 
-    func configure(for post: Post) {
+    func configure(with post: Post) {
         usernameLabel.text = post.author_fullname
         timePassedLabel.text = post.timePassed
         domainLabel.text = post.domain
         titleLabel.text = post.title
         ratingLabel.text = String(post.rating)
         commentsLabel.text = String(post.num_comments)
-        previewImage.sd_setImage(with: URL(string: post.image_url))
+
+        if let url = post.image_url {
+            previewImage.sd_setImage(with: url)
+        }
+
         saveButton.isSelected = post.saved
 
         self.post = post
+    }
+
+    func goToDefault() {
+        usernameLabel.text = "username"
+        timePassedLabel.text = "time passed"
+        domainLabel.text = "domain"
+        titleLabel.text = "Title"
+        ratingLabel.text = "0"
+        commentsLabel.text = "0"
+        previewImage.image = UIImage(contentsOfFile: "placeholder-image")
+        saveButton.isSelected = false
+        post = nil
     }
 
     @IBAction func savePost(button: UIButton) {
