@@ -60,7 +60,7 @@ class PostView: UIView {
         titleLabel.text = "Title"
         ratingLabel.text = "0"
         commentsLabel.text = "0"
-        previewImage.image = UIImage(contentsOfFile: "placeholder-image")
+        previewImage.image = UIImage(named: "placeholder-image")
         saveButton.isSelected = false
         post = nil
     }
