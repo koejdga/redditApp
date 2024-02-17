@@ -45,13 +45,13 @@ class PostsGetter {
 
     func getRedditPosts(subreddit: String, limit: Int?, after: String?, completion: @escaping (Result<[Post], NetworkError>) -> Void) {
         isPaginating = true
-//        DispatchQueue.global().asyncAfter(deadline: .now() + 0.5) {
-        let redditPostUrl = RedditPostUrl(subreddit: subreddit, limit: limit, after: after)
-        fetchPostData(url: redditPostUrl.url) { result in
-            completion(result)
-            self.isPaginating = false
+        DispatchQueue.global().asyncAfter(deadline: .now() + 0.5) {
+            let redditPostUrl = RedditPostUrl(subreddit: subreddit, limit: limit, after: after)
+            self.fetchPostData(url: redditPostUrl.url) { result in
+                completion(result)
+                self.isPaginating = false
+            }
         }
-//        }
     }
 
     private func fetchPostData(url: String, completion: @escaping (Result<[Post], NetworkError>) -> Void) {
@@ -68,8 +68,6 @@ class PostsGetter {
                 print("ERROR: Unable to fetch post")
                 return
             }
-
-            print(url)
 
             do {
                 let decodedResponse = try JSONDecoder().decode(RedditResponse.self, from: data)

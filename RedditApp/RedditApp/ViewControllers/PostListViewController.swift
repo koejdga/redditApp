@@ -24,7 +24,7 @@ class PostListViewController: UIViewController {
         return posts.last?.after
     }
 
-    let limit = 2
+    let limit = 3
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,7 +98,7 @@ extension PostListViewController: UITableViewDataSource {
 extension PostListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         lastSelectedPost = posts[indexPath.row]
-        performSegue(withIdentifier: Const.segueIdentifier, sender: nil)
+//        segue with Const.segueIdentifier is performed here (in Storyboard)
     }
 }
 

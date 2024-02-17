@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Kal-OH-mwf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BMP-dn-PLn">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
@@ -8,6 +8,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="rZc-7y-BFs">
+            <objects>
+                <navigationController id="BMP-dn-PLn" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="g6x-8R-wIh">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="0ZG-Ly-Hdp" kind="relationship" relationship="rootViewController" id="BaI-R8-xgw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mId-WR-AaK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1096" y="-739"/>
+        </scene>
         <!--Post List View Controller-->
         <scene sceneID="Acj-xU-JbV">
             <objects>
@@ -43,7 +59,7 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="postView" destination="fDk-8H-k2s" id="6ne-PP-RTR"/>
-                                            <segue destination="BYZ-38-t0r" kind="show" identifier="go_to_post_details" id="Rs8-TK-x0A"/>
+                                            <segue destination="ORu-CF-aYK" kind="show" identifier="go_to_post_details" id="D9O-3v-yQs"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -86,56 +102,40 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8vS-jc-594" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-846.56488549618314" y="2.8169014084507045"/>
+            <point key="canvasLocation" x="-202" y="-739"/>
         </scene>
         <!--Post Details View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <scene sceneID="UgN-uP-ut2">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="PostDetailsViewController" customModule="RedditApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController id="ORu-CF-aYK" customClass="PostDetailsViewController" customModule="RedditApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="34T-Dt-jya">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iRG-gr-A4W" customClass="PostView" customModule="RedditApp" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c5z-Jf-gT1" customClass="PostView" customModule="RedditApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="158.66666666666663" width="393" height="535"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="535" id="yhG-ft-rSV"/>
+                                    <constraint firstAttribute="height" constant="535" id="Mee-Wh-7jy"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <viewLayoutGuide key="safeArea" id="WaR-kY-1SJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="iRG-gr-A4W" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="AWt-b3-ru1"/>
-                            <constraint firstItem="iRG-gr-A4W" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="wB5-Bi-Kom"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iRG-gr-A4W" secondAttribute="trailing" id="xkw-4z-5AL"/>
+                            <constraint firstItem="c5z-Jf-gT1" firstAttribute="centerX" secondItem="34T-Dt-jya" secondAttribute="centerX" id="ZZw-t6-rTm"/>
+                            <constraint firstItem="c5z-Jf-gT1" firstAttribute="width" secondItem="34T-Dt-jya" secondAttribute="width" id="c6k-HI-cC2"/>
+                            <constraint firstItem="c5z-Jf-gT1" firstAttribute="centerY" secondItem="34T-Dt-jya" secondAttribute="centerY" id="fxV-E4-cuy"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="qqN-Nk-m9m"/>
+                    <navigationItem key="navigationItem" id="n31-wa-9Hp"/>
                     <connections>
-                        <outlet property="postView" destination="iRG-gr-A4W" id="cLT-wj-fRR"/>
+                        <outlet property="postView" destination="c5z-Jf-gT1" id="2gC-kJ-VdN"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="031-VA-GnS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-15" y="3"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="IE0-Xl-K6j">
-            <objects>
-                <navigationController id="Kal-OH-mwf" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cwh-Bt-glB">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="0ZG-Ly-Hdp" kind="relationship" relationship="rootViewController" id="W77-QC-GIj"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rSg-n4-sci" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1654" y="3"/>
+            <point key="canvasLocation" x="745.80152671755718" y="-739.43661971830988"/>
         </scene>
     </scenes>
     <resources>
