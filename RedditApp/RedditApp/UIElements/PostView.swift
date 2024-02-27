@@ -19,6 +19,8 @@ class PostView: UIView {
     @IBOutlet var previewImage: UIImageView!
     @IBOutlet var saveButton: UIButton!
 
+    @IBOutlet var parentViewController: UIViewController?
+
     private var post: Post?
 
     override init(frame: CGRect) {
@@ -37,7 +39,7 @@ class PostView: UIView {
     }
 
     func configure(with post: Post) {
-        usernameLabel.text = post.author_fullname
+        usernameLabel.text = post.author_fullname ?? "unknown"
         timePassedLabel.text = post.timePassed
         domainLabel.text = post.domain
         titleLabel.text = post.title
@@ -48,7 +50,8 @@ class PostView: UIView {
             previewImage.sd_setImage(with: url)
         }
 
-        saveButton.isSelected = post.saved
+        let buttonImage = post.saved ? UIImage(systemName: "bookmark.fill") : UIImage(systemName: "bookmark")
+        saveButton.setImage(buttonImage, for: .normal)
 
         self.post = post
     }
@@ -66,13 +69,28 @@ class PostView: UIView {
     }
 
     @IBAction func savePost(button: UIButton) {
-        print("savedPost")
         if var post = post {
             post.saved = !post.saved
+
+            if post.saved {
+                MyFileManager.manager.writeToFile(post: post)
+            } else {
+                MyFileManager.manager.removeFromFile(post: post)
+            }
+
             let buttonImage = post.saved ? UIImage(systemName: "bookmark.fill") : UIImage(systemName: "bookmark")
             saveButton.setImage(buttonImage, for: .normal)
 
             self.post = post
+        }
+    }
+
+    @IBAction func sharePost() {
+        if let post = post, let url = URL(string: post.permalink) {
+            print("INFO: Shared post")
+            let items = [url]
+            let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+            parentViewController?.present(ac, animated: true)
         }
     }
 }

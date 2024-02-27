@@ -89,16 +89,6 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="square.and.arrow.up.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ubP-GA-uEX">
-                    <rect key="frame" x="308" y="493.66666666666669" width="19" height="21.000000000000057"/>
-                    <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvW-J5-2tG">
-                    <rect key="frame" x="334" y="494.66666666666669" width="44" height="20.333333333333314"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IM7-W5-kNh" userLabel="Bookmark Button">
                     <rect key="frame" x="331.66666666666669" y="0.0" width="46.333333333333314" height="34.333333333333336"/>
                     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -114,35 +104,44 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMt-me-o3e">
+                    <rect key="frame" x="308" y="493.66666666666669" width="70" height="22.333333333333314"/>
+                    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title=" Share" image="square.and.arrow.up.fill" catalog="system">
+                        <color key="titleColor" systemColor="darkTextColor"/>
+                    </state>
+                    <connections>
+                        <action selector="sharePost" destination="-1" eventType="touchUpInside" id="MW4-Sn-lbN"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="uvW-J5-2tG" firstAttribute="top" secondItem="a2J-rg-C3x" secondAttribute="bottom" constant="15" id="19Q-7V-XPZ"/>
                 <constraint firstItem="E0v-IP-MJ5" firstAttribute="top" secondItem="IM7-W5-kNh" secondAttribute="bottom" constant="10" id="1EK-9z-zje"/>
                 <constraint firstAttribute="trailing" secondItem="IM7-W5-kNh" secondAttribute="trailing" constant="15" id="682-nq-NjG"/>
                 <constraint firstItem="duY-Oe-0N3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mF2-zf-LkW" secondAttribute="trailing" constant="30" id="6VW-LK-kBB"/>
-                <constraint firstItem="ubP-GA-uEX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="UPk-Mh-zjY" secondAttribute="trailing" constant="30" id="9W3-zI-JQ0"/>
                 <constraint firstItem="PlW-in-hDl" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="9xH-gc-v5c"/>
-                <constraint firstItem="UPk-Mh-zjY" firstAttribute="top" secondItem="a2J-rg-C3x" secondAttribute="bottom" constant="15" id="A2V-rx-JOQ"/>
                 <constraint firstItem="mF2-zf-LkW" firstAttribute="leading" secondItem="PlW-in-hDl" secondAttribute="trailing" constant="7" id="ADL-DK-Jrp"/>
                 <constraint firstAttribute="trailing" secondItem="E0v-IP-MJ5" secondAttribute="trailing" constant="15" id="CxB-DE-q8P"/>
                 <constraint firstItem="a2J-rg-C3x" firstAttribute="top" secondItem="E0v-IP-MJ5" secondAttribute="bottom" constant="10" id="D1Y-Vz-VY1"/>
                 <constraint firstItem="PlW-in-hDl" firstAttribute="top" secondItem="a2J-rg-C3x" secondAttribute="bottom" constant="15" id="Egw-Zu-Wel"/>
                 <constraint firstItem="IM7-W5-kNh" firstAttribute="firstBaseline" secondItem="Wjl-gi-Jhh" secondAttribute="firstBaseline" id="HsW-QJ-RBS"/>
+                <constraint firstItem="dMt-me-o3e" firstAttribute="centerY" secondItem="PlW-in-hDl" secondAttribute="centerY" id="I8n-sH-Gbb"/>
                 <constraint firstItem="a2J-rg-C3x" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="IaN-Cm-Mv0"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="dMt-me-o3e" secondAttribute="trailing" constant="15" id="JcX-0N-ncs"/>
                 <constraint firstItem="UPk-Mh-zjY" firstAttribute="leading" secondItem="duY-Oe-0N3" secondAttribute="trailing" constant="7" id="MQL-rP-4bb"/>
-                <constraint firstItem="ubP-GA-uEX" firstAttribute="top" secondItem="a2J-rg-C3x" secondAttribute="bottom" constant="15" id="MQM-rf-qZr"/>
                 <constraint firstItem="Wjl-gi-Jhh" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="OcW-QH-aVP"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="uvW-J5-2tG" secondAttribute="trailing" constant="15" id="PXt-aE-YcE"/>
                 <constraint firstItem="E0v-IP-MJ5" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="VDr-WY-r5B"/>
                 <constraint firstItem="duY-Oe-0N3" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="-20" id="VVg-aU-C4U"/>
-                <constraint firstItem="duY-Oe-0N3" firstAttribute="top" secondItem="a2J-rg-C3x" secondAttribute="bottom" constant="15" id="Wd6-kM-PFx"/>
+                <constraint firstItem="dMt-me-o3e" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="UPk-Mh-zjY" secondAttribute="trailing" constant="30" id="W1N-M5-J5l"/>
                 <constraint firstItem="a2J-rg-C3x" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="XpP-4W-aaC"/>
+                <constraint firstItem="duY-Oe-0N3" firstAttribute="centerY" secondItem="PlW-in-hDl" secondAttribute="centerY" id="am2-9r-MA2"/>
+                <constraint firstItem="mF2-zf-LkW" firstAttribute="centerY" secondItem="PlW-in-hDl" secondAttribute="centerY" id="bjW-Nm-wVg"/>
                 <constraint firstAttribute="trailing" secondItem="a2J-rg-C3x" secondAttribute="trailing" id="d87-VD-1o1"/>
-                <constraint firstItem="mF2-zf-LkW" firstAttribute="top" secondItem="a2J-rg-C3x" secondAttribute="bottom" constant="15" id="ddW-9D-tgE"/>
-                <constraint firstItem="uvW-J5-2tG" firstAttribute="leading" secondItem="ubP-GA-uEX" secondAttribute="trailing" constant="7" id="fVb-yd-B2K"/>
                 <constraint firstItem="Wjl-gi-Jhh" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="hs5-5m-cPo"/>
+                <constraint firstItem="UPk-Mh-zjY" firstAttribute="centerY" secondItem="PlW-in-hDl" secondAttribute="centerY" id="mIv-oO-xao"/>
                 <constraint firstAttribute="trailing" secondItem="IM7-W5-kNh" secondAttribute="trailing" constant="15" id="rUE-Cw-5Ch"/>
                 <constraint firstItem="IM7-W5-kNh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Wjl-gi-Jhh" secondAttribute="trailing" constant="15" id="rfH-qX-LSd"/>
             </constraints>
@@ -156,6 +155,9 @@
         <image name="placeholder-image" width="580" height="435"/>
         <image name="square.and.arrow.up.fill" catalog="system" width="115" height="128"/>
         <image name="text.bubble.fill.rtl" catalog="system" width="128" height="110"/>
+        <systemColor name="darkTextColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

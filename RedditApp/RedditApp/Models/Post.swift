@@ -19,15 +19,20 @@ struct PostWrapper: Codable {
     let data: Post
 }
 
-struct Post: Codable {
+struct Post: Codable, Equatable {
+    static func == (lhs: Post, rhs: Post) -> Bool {
+        return lhs.name == rhs.name
+    }
+
     let title: String
-    let author_fullname: String
+    let author_fullname: String?
     let domain: String
     let preview: ImagePreview?
     let created_utc: Int
     let ups: Int
     let downs: Int
     let num_comments: Int
+    let permalink: String
 
     let name: String
 

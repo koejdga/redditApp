@@ -15,6 +15,7 @@
 		2F7168CA2B7F96AB009C17F7 /* PostGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7168C92B7F96AB009C17F7 /* PostGetter.swift */; };
 		2F98306A2B7AE95A00FFF6B5 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 2F9830692B7AE95A00FFF6B5 /* SDWebImage */; };
 		2F98306C2B7AE95A00FFF6B5 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2F98306B2B7AE95A00FFF6B5 /* SDWebImageMapKit */; };
+		2FB965E12B8C0B8300CB72B1 /* MyFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB965E02B8C0B8300CB72B1 /* MyFileManager.swift */; };
 		2FC6F3D92B7A40E300485F8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC6F3D82B7A40E300485F8D /* AppDelegate.swift */; };
 		2FC6F3DB2B7A40E300485F8D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC6F3DA2B7A40E300485F8D /* SceneDelegate.swift */; };
 		2FC6F3DD2B7A40E300485F8D /* PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC6F3DC2B7A40E300485F8D /* PostDetailsViewController.swift */; };
@@ -30,6 +31,7 @@
 		2F3214C32B7EE00C00FA6C32 /* PostView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostView.xib; sourceTree = "<group>"; };
 		2F3214C52B7EF29C00FA6C32 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		2F7168C92B7F96AB009C17F7 /* PostGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostGetter.swift; sourceTree = "<group>"; };
+		2FB965E02B8C0B8300CB72B1 /* MyFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFileManager.swift; sourceTree = "<group>"; };
 		2FC6F3D52B7A40E300485F8D /* RedditApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedditApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FC6F3D82B7A40E300485F8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FC6F3DA2B7A40E300485F8D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				2F7168C92B7F96AB009C17F7 /* PostGetter.swift */,
+				2FB965E02B8C0B8300CB72B1 /* MyFileManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 				2F3214BA2B7ED1BD00FA6C32 /* PostListViewController.swift in Sources */,
 				2FC6F3DD2B7A40E300485F8D /* PostDetailsViewController.swift in Sources */,
 				2F3214BC2B7ED2C100FA6C32 /* PostTableViewCell.swift in Sources */,
+				2FB965E12B8C0B8300CB72B1 /* MyFileManager.swift in Sources */,
 				2FC6F3D92B7A40E300485F8D /* AppDelegate.swift in Sources */,
 				2F7168CA2B7F96AB009C17F7 /* PostGetter.swift in Sources */,
 				2F3214C22B7EDFF700FA6C32 /* PostView.swift in Sources */,

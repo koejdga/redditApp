@@ -14,7 +14,7 @@ class PostListViewController: UIViewController {
     }
 
     @IBOutlet var tableView: UITableView!
-    @IBOutlet var subredditLabel: UILabel!
+    @IBOutlet var searchBar: UISearchBar!
 
     let postsGetter = PostsGetter()
     var posts: [Post] = []
@@ -24,13 +24,38 @@ class PostListViewController: UIViewController {
         return posts.last?.after
     }
 
-    let limit = 3
+    var showOnlySavedPosts = false {
+        didSet {
+            if !showOnlySavedPosts {
+                posts = []
+                getAndLoadPosts()
+            }
+        }
+    }
+
+    let limit = 5
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        subredditLabel.text = "/r/\(subreddit)"
+        title = "/r/\(subreddit)"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "bookmark.circle"), style: .plain, target: self, action: #selector(showSavedPosts))
         getAndLoadPosts()
+
+        let swipeGesture = UIPanGestureRecognizer(target: self, action: #selector(handleSwipe(_:)))
+        swipeGesture.delegate = self
+        view.addGestureRecognizer(swipeGesture)
+    }
+
+    @objc func dismissKeyboard() {
+        searchBar.resignFirstResponder()
+    }
+
+    @objc func handleSwipe(_ gestureRecognizer: UIPanGestureRecognizer) {
+        if gestureRecognizer.state == .began {
+            _ = gestureRecognizer.translation(in: view)
+            searchBar.resignFirstResponder()
+        }
     }
 
     private func createSpinnerFooter() -> UIView {
@@ -45,10 +70,22 @@ class PostListViewController: UIViewController {
     }
 
     func getAndLoadPosts() {
+        let savedPosts = MyFileManager.manager.readFromFile()
+
         postsGetter.getRedditPosts(subreddit: subreddit, limit: limit, after: lastAfter) { [weak self] result in
             switch result {
-            case .success(let posts):
+            case .success(var posts):
                 DispatchQueue.main.async {
+                    posts = posts.map {
+                        if savedPosts.contains($0) {
+                            var newPost = $0
+                            newPost.saved = true
+                            return newPost
+                        } else {
+                            return $0
+                        }
+                    }
+
                     self?.posts.append(contentsOf: posts)
                     self?.tableView.reloadData()
                     self?.tableView.tableFooterView = nil
@@ -59,13 +96,25 @@ class PostListViewController: UIViewController {
         }
     }
 
+    @objc func showSavedPosts() {
+        showOnlySavedPosts = !showOnlySavedPosts
+        if showOnlySavedPosts {
+            posts = MyFileManager.manager.readFromFile()
+            tableView.reloadData()
+        }
+
+        searchBar.isHidden = !searchBar.isHidden
+
+        if showOnlySavedPosts {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "bookmark.circle.fill"), style: .plain, target: self, action: #selector(showSavedPosts))
+        } else {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "bookmark.circle"), style: .plain, target: self, action: #selector(showSavedPosts))
+        }
+    }
+
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-
         switch segue.identifier {
         case Const.segueIdentifier:
             let nextVc = segue.destination as! PostDetailsViewController
@@ -98,12 +147,14 @@ extension PostListViewController: UITableViewDataSource {
 extension PostListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         lastSelectedPost = posts[indexPath.row]
-//        segue with Const.segueIdentifier is performed here (in Storyboard)
+//      segue with Const.segueIdentifier is performed here (in Storyboard)
     }
 }
 
 extension PostListViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if showOnlySavedPosts { return }
+
         let position = scrollView.contentOffset.y
         if position > tableView.contentSize.height - 100 - scrollView.frame.size.height {
             if !postsGetter.isPaginating {
@@ -111,5 +162,29 @@ extension PostListViewController: UIScrollViewDelegate {
                 getAndLoadPosts()
             }
         }
+    }
+}
+
+extension PostListViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        let savedPosts = MyFileManager.manager.readFromFile()
+
+        if searchText.isEmpty {
+            posts = savedPosts
+        } else {
+            posts = savedPosts.filter { $0.title.contains(searchText) }
+        }
+
+        tableView.reloadData()
+    }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+}
+
+extension PostListViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
 }

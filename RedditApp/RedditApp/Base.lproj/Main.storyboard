@@ -17,14 +17,14 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="0ZG-Ly-Hdp" kind="relationship" relationship="rootViewController" id="BaI-R8-xgw"/>
+                        <segue destination="0ZG-Ly-Hdp" kind="relationship" relationship="rootViewController" id="9yA-nU-J0J"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mId-WR-AaK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1096" y="-739"/>
         </scene>
-        <!--Post List View Controller-->
+        <!--/r/subreddit-->
         <scene sceneID="Acj-xU-JbV">
             <objects>
                 <viewController id="0ZG-Ly-Hdp" customClass="PostListViewController" customModule="RedditApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -32,8 +32,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar hidden="YES" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="mxj-81-jdq">
+                                <rect key="frame" x="0.0" y="103" width="393" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="0ZG-Ly-Hdp" id="JzE-Vk-FZs"/>
+                                </connections>
+                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="535" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="L0c-lY-jsz">
-                                <rect key="frame" x="0.0" y="154.66666666666669" width="393" height="663.33333333333326"/>
+                                <rect key="frame" x="0.0" y="164" width="393" height="654"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reddit_post_cell" rowHeight="535" id="REq-pl-4bf" customClass="PostTableViewCell" customModule="RedditApp" customModuleProvider="target">
@@ -44,8 +51,11 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fDk-8H-k2s" customClass="PostView" customModule="RedditApp" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="324"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="535"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <connections>
+                                                        <outlet property="parentViewController" destination="0ZG-Ly-Hdp" id="crL-5m-Ygb"/>
+                                                    </connections>
                                                 </view>
                                             </subviews>
                                             <constraints>
@@ -55,11 +65,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <constraints>
-                                            <constraint firstItem="fDk-8H-k2s" firstAttribute="height" secondItem="REq-pl-4bf" secondAttribute="height" multiplier="0.605607" id="fDg-Yg-Z00"/>
+                                            <constraint firstItem="fDk-8H-k2s" firstAttribute="height" secondItem="REq-pl-4bf" secondAttribute="height" id="fDg-Yg-Z00"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="postView" destination="fDk-8H-k2s" id="6ne-PP-RTR"/>
-                                            <segue destination="ORu-CF-aYK" kind="show" identifier="go_to_post_details" id="D9O-3v-yQs"/>
+                                            <segue destination="ORu-CF-aYK" kind="show" identifier="go_to_post_details" id="vNo-u7-Zvz"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -68,41 +78,34 @@
                                     <outlet property="delegate" destination="0ZG-Ly-Hdp" id="tac-jL-r4K"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/r/iOS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pt2-Ec-fUv">
-                                <rect key="frame" x="169.66666666666666" y="118.00000000000001" width="54" height="26.666666666666671"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OlU-U3-izm">
-                                <rect key="frame" x="333" y="118" width="50" height="34"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="bookmark.circle" catalog="system"/>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="C7g-eY-O0e"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="L0c-lY-jsz" firstAttribute="top" secondItem="Pt2-Ec-fUv" secondAttribute="bottom" constant="10" id="1p2-hT-as1"/>
-                            <constraint firstItem="C7g-eY-O0e" firstAttribute="trailing" secondItem="OlU-U3-izm" secondAttribute="trailing" constant="10" id="7hH-b2-ekw"/>
                             <constraint firstItem="C7g-eY-O0e" firstAttribute="bottom" secondItem="L0c-lY-jsz" secondAttribute="bottom" id="HDa-RU-UFz"/>
-                            <constraint firstItem="Pt2-Ec-fUv" firstAttribute="top" secondItem="C7g-eY-O0e" secondAttribute="top" constant="15" id="VaQ-hl-4Jp"/>
-                            <constraint firstItem="OlU-U3-izm" firstAttribute="top" secondItem="C7g-eY-O0e" secondAttribute="top" constant="15" id="ciG-90-tKw"/>
-                            <constraint firstItem="Pt2-Ec-fUv" firstAttribute="centerX" secondItem="suy-d2-aqu" secondAttribute="centerX" id="ciS-Qy-PZa"/>
+                            <constraint firstItem="mxj-81-jdq" firstAttribute="top" secondItem="C7g-eY-O0e" secondAttribute="top" id="Hva-ke-4X5"/>
+                            <constraint firstItem="mxj-81-jdq" firstAttribute="leading" secondItem="C7g-eY-O0e" secondAttribute="leading" id="PFs-6a-v4H"/>
+                            <constraint firstItem="L0c-lY-jsz" firstAttribute="top" secondItem="C7g-eY-O0e" secondAttribute="top" id="dRB-lj-y2r"/>
+                            <constraint firstItem="mxj-81-jdq" firstAttribute="trailing" secondItem="C7g-eY-O0e" secondAttribute="trailing" id="gFy-kv-IQE"/>
                             <constraint firstItem="L0c-lY-jsz" firstAttribute="leading" secondItem="C7g-eY-O0e" secondAttribute="leading" id="kSo-Vk-foQ"/>
-                            <constraint firstItem="OlU-U3-izm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Pt2-Ec-fUv" secondAttribute="trailing" constant="10" id="uwl-w9-XKQ"/>
+                            <constraint firstItem="L0c-lY-jsz" firstAttribute="top" secondItem="mxj-81-jdq" secondAttribute="bottom" constant="5" id="qPM-al-Ekw"/>
                             <constraint firstItem="C7g-eY-O0e" firstAttribute="trailing" secondItem="L0c-lY-jsz" secondAttribute="trailing" id="wVr-4n-1lX"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="dRB-lj-y2r"/>
+                            </mask>
+                        </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="dne-JN-0Ta"/>
+                    <navigationItem key="navigationItem" title="/r/subreddit" id="dne-JN-0Ta"/>
                     <connections>
-                        <outlet property="subredditLabel" destination="Pt2-Ec-fUv" id="aE2-Ss-5ZD"/>
+                        <outlet property="searchBar" destination="mxj-81-jdq" id="eXR-En-Koa"/>
                         <outlet property="tableView" destination="L0c-lY-jsz" id="Lh7-C0-6F3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8vS-jc-594" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-202" y="-739"/>
+            <point key="canvasLocation" x="-202.29007633587784" y="-739.43661971830988"/>
         </scene>
         <!--Post Details View Controller-->
         <scene sceneID="UgN-uP-ut2">
@@ -118,6 +121,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="535" id="Mee-Wh-7jy"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="parentViewController" destination="ORu-CF-aYK" id="hGJ-NR-XOy"/>
+                                </connections>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="WaR-kY-1SJ"/>
@@ -139,7 +145,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bookmark.circle" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
