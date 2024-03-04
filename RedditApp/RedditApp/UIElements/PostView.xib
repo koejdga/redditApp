@@ -10,7 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PostView" customModule="RedditApp" customModuleProvider="target">
             <connections>
-                <outlet property="commentsLabel" destination="UPk-Mh-zjY" id="oFt-Wd-lXP"/>
+                <outlet property="bookmarkView" destination="PUL-4h-ghh" id="t3B-VB-tDq"/>
+                <outlet property="commentsButton" destination="RWy-Hu-l12" id="hKt-NW-bu3"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="maB-kM-KAV"/>
                 <outlet property="domainLabel" destination="LR1-4D-75G" id="mGg-jO-cuC"/>
                 <outlet property="previewImage" destination="a2J-rg-C3x" id="O7P-cz-qCa"/>
@@ -74,17 +75,7 @@
                     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.0k" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mF2-zf-LkW">
-                    <rect key="frame" x="41.333333333333336" y="494.66666666666669" width="30.333333333333336" height="20.333333333333314"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="text.bubble.fill.rtl" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="duY-Oe-0N3">
-                    <rect key="frame" x="165.33333333333334" y="496" width="22.333333333333343" height="19.333333333333258"/>
-                    <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="85" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPk-Mh-zjY">
-                    <rect key="frame" x="194.66666666666666" y="494.66666666666669" width="20.666666666666657" height="20.333333333333314"/>
+                    <rect key="frame" x="41.333333333333343" y="494.66666666666669" width="30.333333333333329" height="20.333333333333314"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -95,7 +86,7 @@
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" image="bookmark" catalog="system"/>
                     <connections>
-                        <action selector="savePostWithButton:" destination="-1" eventType="touchUpInside" id="WTa-TX-Wdk"/>
+                        <action selector="saveOrUnsavePostWithButton:" destination="-1" eventType="touchUpInside" id="zqo-dg-3yY"/>
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E0v-IP-MJ5">
@@ -115,33 +106,52 @@
                         <action selector="sharePost" destination="-1" eventType="touchUpInside" id="MW4-Sn-lbN"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PUL-4h-ghh">
+                    <rect key="frame" x="116.66666666666669" y="167.66666666666663" width="160" height="200"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="160" id="GLb-ra-EaL"/>
+                        <constraint firstAttribute="height" constant="200" id="q2S-Ut-YoS"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWy-Hu-l12">
+                    <rect key="frame" x="172" y="494" width="49.333333333333343" height="22"/>
+                    <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title=" 85" image="text.bubble.fill.rtl" catalog="system">
+                        <color key="titleColor" systemColor="darkTextColor"/>
+                    </state>
+                    <connections>
+                        <action selector="commentButtonTapped:" destination="-1" eventType="touchUpInside" id="TbZ-ev-3OE"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="E0v-IP-MJ5" firstAttribute="top" secondItem="IM7-W5-kNh" secondAttribute="bottom" constant="10" id="1EK-9z-zje"/>
+                <constraint firstItem="RWy-Hu-l12" firstAttribute="centerY" secondItem="PlW-in-hDl" secondAttribute="centerY" id="1xF-Sk-Zh5"/>
+                <constraint firstItem="RWy-Hu-l12" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mF2-zf-LkW" secondAttribute="trailing" constant="30" id="3LC-A4-cE3"/>
                 <constraint firstAttribute="trailing" secondItem="IM7-W5-kNh" secondAttribute="trailing" constant="15" id="682-nq-NjG"/>
-                <constraint firstItem="duY-Oe-0N3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mF2-zf-LkW" secondAttribute="trailing" constant="30" id="6VW-LK-kBB"/>
                 <constraint firstItem="PlW-in-hDl" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="9xH-gc-v5c"/>
                 <constraint firstItem="mF2-zf-LkW" firstAttribute="leading" secondItem="PlW-in-hDl" secondAttribute="trailing" constant="7" id="ADL-DK-Jrp"/>
                 <constraint firstAttribute="trailing" secondItem="E0v-IP-MJ5" secondAttribute="trailing" constant="15" id="CxB-DE-q8P"/>
                 <constraint firstItem="a2J-rg-C3x" firstAttribute="top" secondItem="E0v-IP-MJ5" secondAttribute="bottom" constant="10" id="D1Y-Vz-VY1"/>
                 <constraint firstItem="PlW-in-hDl" firstAttribute="top" secondItem="a2J-rg-C3x" secondAttribute="bottom" constant="15" id="Egw-Zu-Wel"/>
+                <constraint firstItem="dMt-me-o3e" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="RWy-Hu-l12" secondAttribute="trailing" constant="30" id="FZB-id-e7x"/>
                 <constraint firstItem="IM7-W5-kNh" firstAttribute="firstBaseline" secondItem="Wjl-gi-Jhh" secondAttribute="firstBaseline" id="HsW-QJ-RBS"/>
                 <constraint firstItem="dMt-me-o3e" firstAttribute="centerY" secondItem="PlW-in-hDl" secondAttribute="centerY" id="I8n-sH-Gbb"/>
+                <constraint firstItem="PUL-4h-ghh" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="IU2-6M-q5o"/>
                 <constraint firstItem="a2J-rg-C3x" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="IaN-Cm-Mv0"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="dMt-me-o3e" secondAttribute="trailing" constant="15" id="JcX-0N-ncs"/>
-                <constraint firstItem="UPk-Mh-zjY" firstAttribute="leading" secondItem="duY-Oe-0N3" secondAttribute="trailing" constant="7" id="MQL-rP-4bb"/>
                 <constraint firstItem="Wjl-gi-Jhh" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="OcW-QH-aVP"/>
                 <constraint firstItem="E0v-IP-MJ5" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="VDr-WY-r5B"/>
-                <constraint firstItem="duY-Oe-0N3" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="-20" id="VVg-aU-C4U"/>
-                <constraint firstItem="dMt-me-o3e" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="UPk-Mh-zjY" secondAttribute="trailing" constant="30" id="W1N-M5-J5l"/>
                 <constraint firstItem="a2J-rg-C3x" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="XpP-4W-aaC"/>
-                <constraint firstItem="duY-Oe-0N3" firstAttribute="centerY" secondItem="PlW-in-hDl" secondAttribute="centerY" id="am2-9r-MA2"/>
                 <constraint firstItem="mF2-zf-LkW" firstAttribute="centerY" secondItem="PlW-in-hDl" secondAttribute="centerY" id="bjW-Nm-wVg"/>
                 <constraint firstAttribute="trailing" secondItem="a2J-rg-C3x" secondAttribute="trailing" id="d87-VD-1o1"/>
+                <constraint firstItem="PUL-4h-ghh" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="eMF-zN-dqF"/>
+                <constraint firstItem="RWy-Hu-l12" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="eSs-FL-OZb"/>
                 <constraint firstItem="Wjl-gi-Jhh" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="hs5-5m-cPo"/>
-                <constraint firstItem="UPk-Mh-zjY" firstAttribute="centerY" secondItem="PlW-in-hDl" secondAttribute="centerY" id="mIv-oO-xao"/>
                 <constraint firstAttribute="trailing" secondItem="IM7-W5-kNh" secondAttribute="trailing" constant="15" id="rUE-Cw-5Ch"/>
                 <constraint firstItem="IM7-W5-kNh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Wjl-gi-Jhh" secondAttribute="trailing" constant="15" id="rfH-qX-LSd"/>
             </constraints>

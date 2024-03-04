@@ -72,7 +72,8 @@ class MyFileManager {
         if postsAfterRemoval.count == posts.count {
             print("ERROR: No such post was found to be removed from file")
         } else if posts.count - postsAfterRemoval.count > 1 {
-            print("ERROR: More than one post was found to be removed from file")
+            writeToFile(posts: postsAfterRemoval)
+            print("ERROR: More than one post was found to be removed from file (and all of them were removed)")
         } else {
             writeToFile(posts: postsAfterRemoval)
             print("INFO: Removed post from file successfully")

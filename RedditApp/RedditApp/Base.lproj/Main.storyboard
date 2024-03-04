@@ -69,7 +69,6 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="postView" destination="fDk-8H-k2s" id="6ne-PP-RTR"/>
-                                            <segue destination="ORu-CF-aYK" kind="show" identifier="go_to_post_details" id="vNo-u7-Zvz"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -101,6 +100,7 @@
                     <connections>
                         <outlet property="searchBar" destination="mxj-81-jdq" id="eXR-En-Koa"/>
                         <outlet property="tableView" destination="L0c-lY-jsz" id="Lh7-C0-6F3"/>
+                        <segue destination="ORu-CF-aYK" kind="show" identifier="go_to_post_details" id="1FT-ZD-c6a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8vS-jc-594" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

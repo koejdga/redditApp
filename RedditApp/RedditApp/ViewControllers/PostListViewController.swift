@@ -7,14 +7,20 @@
 
 import UIKit
 
-class PostListViewController: UIViewController {
+class PostListViewController: UIViewController, UITableViewDataSource, PostViewDelegate, SelectedPostDelegate, UIScrollViewDelegate, UISearchBarDelegate, UIGestureRecognizerDelegate {
+    // MARK: - Static
+
     enum Const {
         static let cellReuseIdentifier = "reddit_post_cell"
         static let segueIdentifier = "go_to_post_details"
     }
 
+    // MARK: - IBOutlets
+
     @IBOutlet var tableView: UITableView!
     @IBOutlet var searchBar: UISearchBar!
+
+    // MARK: - Properties
 
     let postsGetter = PostsGetter()
     var posts: [Post] = []
@@ -47,27 +53,7 @@ class PostListViewController: UIViewController {
         view.addGestureRecognizer(swipeGesture)
     }
 
-    @objc func dismissKeyboard() {
-        searchBar.resignFirstResponder()
-    }
-
-    @objc func handleSwipe(_ gestureRecognizer: UIPanGestureRecognizer) {
-        if gestureRecognizer.state == .began {
-            _ = gestureRecognizer.translation(in: view)
-            searchBar.resignFirstResponder()
-        }
-    }
-
-    private func createSpinnerFooter() -> UIView {
-        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 100))
-
-        let spinner = UIActivityIndicatorView()
-        spinner.center = footerView.center
-        footerView.addSubview(spinner)
-        spinner.startAnimating()
-
-        return footerView
-    }
+    // MARK: - Show posts
 
     func getAndLoadPosts() {
         let savedPosts = MyFileManager.manager.readFromFile()
@@ -112,46 +98,60 @@ class PostListViewController: UIViewController {
         }
     }
 
+    // MARK: - Swipe and Spinner
+
+    @objc func dismissKeyboard() {
+        searchBar.resignFirstResponder()
+    }
+
+    @objc func handleSwipe(_ gestureRecognizer: UIPanGestureRecognizer) {
+        if gestureRecognizer.state == .began {
+            _ = gestureRecognizer.translation(in: view)
+            searchBar.resignFirstResponder()
+        }
+    }
+
+    private func createSpinnerFooter() -> UIView {
+        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 100))
+
+        let spinner = UIActivityIndicatorView()
+        spinner.center = footerView.center
+        footerView.addSubview(spinner)
+        spinner.startAnimating()
+
+        return footerView
+    }
+
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case Const.segueIdentifier:
             let nextVc = segue.destination as! PostDetailsViewController
-            DispatchQueue.main.async {
-                if let lastSelectedPost = self.lastSelectedPost {
-                    nextVc.configure(with: lastSelectedPost)
-                }
-            }
+            nextVc.delegate = self
         default:
             break
         }
     }
-}
 
-extension PostListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
     }
+
+    // MARK: - UITableViewDataSource
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Const.cellReuseIdentifier, for: indexPath) as! PostTableViewCell
         if !posts.isEmpty {
             cell.configure(with: posts[indexPath.row])
+            cell.postView.delegate = self
         }
 
         return cell
     }
-}
 
-extension PostListViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        lastSelectedPost = posts[indexPath.row]
-//      segue with Const.segueIdentifier is performed here (in Storyboard)
-    }
-}
+    // MARK: - UIScrollViewDelegate
 
-extension PostListViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if showOnlySavedPosts { return }
 
@@ -163,16 +163,16 @@ extension PostListViewController: UIScrollViewDelegate {
             }
         }
     }
-}
 
-extension PostListViewController: UISearchBarDelegate {
+    // MARK: - UISearchBarDelegate
+
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         let savedPosts = MyFileManager.manager.readFromFile()
 
         if searchText.isEmpty {
             posts = savedPosts
         } else {
-            posts = savedPosts.filter { $0.title.contains(searchText) }
+            posts = savedPosts.filter { $0.title.lowercased().contains(searchText.lowercased()) }
         }
 
         tableView.reloadData()
@@ -181,10 +181,23 @@ extension PostListViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
     }
-}
 
-extension PostListViewController: UIGestureRecognizerDelegate {
+    // MARK: - UIGestureRecognizerDelegate
+
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
+    }
+
+    // MARK: - PostViewDelegate
+
+    func commentButtonTapped(in cell: PostView) {
+        lastSelectedPost = cell.getPost
+        performSegue(withIdentifier: Const.segueIdentifier, sender: self)
+    }
+
+    // MARK: - SelectedPostDelegate
+
+    var post: Post? {
+        lastSelectedPost
     }
 }

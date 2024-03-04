@@ -10,12 +10,21 @@ import UIKit
 
 class PostDetailsViewController: UIViewController {
     @IBOutlet var postView: PostView!
+    var post: Post?
+    var delegate: SelectedPostDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configure(with: delegate?.post)
     }
 
-    func configure(with post: Post) {
-        postView.configure(with: post)
+    func configure(with post: Post?) {
+        if let post = post {
+            postView.configure(with: post)
+        }
     }
+}
+
+protocol SelectedPostDelegate {
+    var post: Post? { get }
 }
