@@ -35,6 +35,8 @@ struct Post: Codable, Equatable {
     let permalink: String
 
     let name: String
+    let subreddit: String
+    let id: String
 
     var after: String {
         return name
@@ -72,10 +74,10 @@ struct Post: Codable, Equatable {
 }
 
 struct ImagePreview: Codable {
-    let images: [Image]
+    let images: [ImageForPost]
 }
 
-struct Image: Codable {
+struct ImageForPost: Codable {
     let source: ImageSource
 }
 

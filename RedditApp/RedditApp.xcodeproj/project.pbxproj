@@ -7,11 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F19D5212BC559B5009255BB /* WholeScreenCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F19D5202BC559B5009255BB /* WholeScreenCommentView.swift */; };
 		2F3214BA2B7ED1BD00FA6C32 /* PostListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3214B92B7ED1BD00FA6C32 /* PostListViewController.swift */; };
 		2F3214BC2B7ED2C100FA6C32 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3214BB2B7ED2C100FA6C32 /* PostTableViewCell.swift */; };
 		2F3214C22B7EDFF700FA6C32 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3214C12B7EDFF700FA6C32 /* PostView.swift */; };
 		2F3214C42B7EE00C00FA6C32 /* PostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F3214C32B7EE00C00FA6C32 /* PostView.xib */; };
 		2F3214C62B7EF29C00FA6C32 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3214C52B7EF29C00FA6C32 /* Post.swift */; };
+		2F399B012BC493A00054D1F2 /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F399B002BC493A00054D1F2 /* CommentsView.swift */; };
+		2F399B032BC493C90054D1F2 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F399B022BC493C90054D1F2 /* Comment.swift */; };
+		2F399B052BC493D40054D1F2 /* CommentGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F399B042BC493D40054D1F2 /* CommentGetter.swift */; };
 		2F7168CA2B7F96AB009C17F7 /* PostGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7168C92B7F96AB009C17F7 /* PostGetter.swift */; };
 		2F98306A2B7AE95A00FFF6B5 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 2F9830692B7AE95A00FFF6B5 /* SDWebImage */; };
 		2F98306C2B7AE95A00FFF6B5 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2F98306B2B7AE95A00FFF6B5 /* SDWebImageMapKit */; };
@@ -25,11 +29,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F19D5202BC559B5009255BB /* WholeScreenCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WholeScreenCommentView.swift; sourceTree = "<group>"; };
 		2F3214B92B7ED1BD00FA6C32 /* PostListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewController.swift; sourceTree = "<group>"; };
 		2F3214BB2B7ED2C100FA6C32 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		2F3214C12B7EDFF700FA6C32 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
 		2F3214C32B7EE00C00FA6C32 /* PostView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostView.xib; sourceTree = "<group>"; };
 		2F3214C52B7EF29C00FA6C32 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		2F399B002BC493A00054D1F2 /* CommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsView.swift; sourceTree = "<group>"; };
+		2F399B022BC493C90054D1F2 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		2F399B042BC493D40054D1F2 /* CommentGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentGetter.swift; sourceTree = "<group>"; };
 		2F7168C92B7F96AB009C17F7 /* PostGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostGetter.swift; sourceTree = "<group>"; };
 		2FB965E02B8C0B8300CB72B1 /* MyFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFileManager.swift; sourceTree = "<group>"; };
 		2FC6F3D52B7A40E300485F8D /* RedditApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedditApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,6 +63,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F399AFF2BC493550054D1F2 /* SwiftUIViews */ = {
+			isa = PBXGroup;
+			children = (
+				2F399B002BC493A00054D1F2 /* CommentsView.swift */,
+				2F19D5202BC559B5009255BB /* WholeScreenCommentView.swift */,
+			);
+			path = SwiftUIViews;
+			sourceTree = "<group>";
+		};
 		2F7168CB2B7F97D4009C17F7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -67,6 +84,7 @@
 		2F7168CC2B7F984F009C17F7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2F399B022BC493C90054D1F2 /* Comment.swift */,
 				2F3214C52B7EF29C00FA6C32 /* Post.swift */,
 			);
 			path = Models;
@@ -75,6 +93,7 @@
 		2F7168CE2B7F98A3009C17F7 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				2F399B042BC493D40054D1F2 /* CommentGetter.swift */,
 				2F7168C92B7F96AB009C17F7 /* PostGetter.swift */,
 				2FB965E02B8C0B8300CB72B1 /* MyFileManager.swift */,
 			);
@@ -112,6 +131,7 @@
 			children = (
 				2FC6F3D82B7A40E300485F8D /* AppDelegate.swift */,
 				2FC6F3DA2B7A40E300485F8D /* SceneDelegate.swift */,
+				2F399AFF2BC493550054D1F2 /* SwiftUIViews */,
 				2FC6F3DE2B7A40E300485F8D /* Main.storyboard */,
 				2F7168CB2B7F97D4009C17F7 /* ViewControllers */,
 				2F7168CF2B7F98B2009C17F7 /* UIElements */,
@@ -205,12 +225,16 @@
 			files = (
 				2F3214BA2B7ED1BD00FA6C32 /* PostListViewController.swift in Sources */,
 				2FC6F3DD2B7A40E300485F8D /* PostDetailsViewController.swift in Sources */,
+				2F19D5212BC559B5009255BB /* WholeScreenCommentView.swift in Sources */,
+				2F399B012BC493A00054D1F2 /* CommentsView.swift in Sources */,
 				2F3214BC2B7ED2C100FA6C32 /* PostTableViewCell.swift in Sources */,
 				2FB965E12B8C0B8300CB72B1 /* MyFileManager.swift in Sources */,
 				2FC6F3D92B7A40E300485F8D /* AppDelegate.swift in Sources */,
 				2F7168CA2B7F96AB009C17F7 /* PostGetter.swift in Sources */,
 				2F3214C22B7EDFF700FA6C32 /* PostView.swift in Sources */,
+				2F399B052BC493D40054D1F2 /* CommentGetter.swift in Sources */,
 				2F3214C62B7EF29C00FA6C32 /* Post.swift in Sources */,
+				2F399B032BC493C90054D1F2 /* Comment.swift in Sources */,
 				2FC6F3DB2B7A40E300485F8D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
