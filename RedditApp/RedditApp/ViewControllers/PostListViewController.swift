@@ -17,8 +17,8 @@ class PostListViewController: UIViewController, UITableViewDataSource, PostViewD
 
     // MARK: - IBOutlets
 
-    @IBOutlet var tableView: UITableView!
-    @IBOutlet var searchBar: UISearchBar!
+    @IBOutlet private var tableView: UITableView!
+    @IBOutlet private var searchBar: UISearchBar!
 
     // MARK: - Properties
 
@@ -46,7 +46,33 @@ class PostListViewController: UIViewController, UITableViewDataSource, PostViewD
 
         title = "/r/\(subreddit)"
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "bookmark.circle"), style: .plain, target: self, action: #selector(showSavedPosts))
-        getAndLoadPosts()
+
+//        TODO: move this to another file maybe (separate view or i don't know
+        let button = UIButton(type: .custom)
+        button.tintColor = .systemYellow
+        let iconImage = UIImage(systemName: "circle.fill")
+        button.setImage(iconImage, for: .normal)
+        button.setImage(iconImage, for: .highlighted)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
+
+        var firstTime = true
+
+        _ = NetworkChecker(onNetworkAvailable: {
+            DispatchQueue.main.async { [weak self] in
+                self?.getAndLoadPosts()
+                button.tintColor = .systemGreen
+                firstTime = false
+            }
+        }, onNetworkAbsent: {
+            DispatchQueue.main.async { [weak self] in
+                if firstTime {
+                    print("show saved posts")
+                    self?.showSavedPosts()
+                }
+                button.tintColor = .systemYellow
+                firstTime = false
+            }
+        })
 
         let swipeGesture = UIPanGestureRecognizer(target: self, action: #selector(handleSwipe(_:)))
         swipeGesture.delegate = self

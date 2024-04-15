@@ -38,6 +38,10 @@ struct Post: Codable, Equatable {
     let subreddit: String
     let id: String
 
+    var link: String {
+        "https://www.reddit.com" + permalink
+    }
+
     var after: String {
         return name
     }

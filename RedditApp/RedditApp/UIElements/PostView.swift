@@ -11,17 +11,17 @@ class PostView: UIView {
     // MARK: - IBOutlets
 
     let kCONTENT_XIB_NAME = "PostView"
-    @IBOutlet var contentView: UIView!
-    @IBOutlet var usernameLabel: UILabel!
-    @IBOutlet var timePassedLabel: UILabel!
-    @IBOutlet var domainLabel: UILabel!
-    @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var ratingLabel: UILabel!
-    @IBOutlet var commentsButton: UIButton!
-    @IBOutlet var previewImage: UIImageView!
-    @IBOutlet var saveButton: UIButton!
-    @IBOutlet var bookmarkView: UIView!
-    @IBOutlet var parentViewController: UIViewController?
+    @IBOutlet private var contentView: UIView!
+    @IBOutlet private var usernameLabel: UILabel!
+    @IBOutlet private var timePassedLabel: UILabel!
+    @IBOutlet private var domainLabel: UILabel!
+    @IBOutlet private var titleLabel: UILabel!
+    @IBOutlet private var ratingLabel: UILabel!
+    @IBOutlet private var commentsButton: UIButton!
+    @IBOutlet private var previewImage: UIImageView!
+    @IBOutlet private var saveButton: UIButton!
+    @IBOutlet private var bookmarkView: UIView!
+    @IBOutlet private var parentViewController: UIViewController?
 
     // MARK: - IBActions
 
@@ -47,7 +47,7 @@ class PostView: UIView {
     }
 
     @IBAction func sharePost() {
-        if let post = post, let url = URL(string: post.permalink) {
+        if let post = post, let url = URL(string: post.link) {
             print("INFO: Shared post")
             let items = [url]
             let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)

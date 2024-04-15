@@ -31,6 +31,10 @@ struct Comment: Codable, Hashable {
 
     let permalink: String
 
+    var link: String {
+        "https://www.reddit.com" + permalink
+    }
+
     var date: Date {
         return Date(timeIntervalSince1970: TimeInterval(created))
     }

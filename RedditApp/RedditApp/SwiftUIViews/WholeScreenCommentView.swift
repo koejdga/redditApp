@@ -26,7 +26,7 @@ struct WholeScreenCommentView: View {
 
             RoundedRectangle(cornerRadius: 16)
                 .stroke(Color.gray, lineWidth: 1)
-                .fill(Color("ThemeColor"))
+                .fill(Color.ui.theme)
                 .frame(maxWidth: .infinity)
                 .overlay(
                     Text(comment.body)
@@ -41,12 +41,26 @@ struct WholeScreenCommentView: View {
         }
         .padding()
         Spacer()
-        ShareLink("Share URL", item: URL(string: comment.permalink)!)
-            .frame(maxWidth: .infinity)
-            .padding(.vertical, 10)
-            .background(Color(.lightGray))
-            .cornerRadius(6.0)
-            .buttonStyle(PlainButtonStyle())
-            .padding(.horizontal, 20)
+        if let url = URL(string: comment.link) {
+            ShareLink("Share URL", item: url)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 10)
+                .background(Color.ui.grey)
+                .cornerRadius(6.0)
+                .buttonStyle(PlainButtonStyle())
+                .padding(.horizontal, 20)
+        } else {
+            RoundedRectangle(cornerRadius: 16)
+                .stroke(Color.pink, lineWidth: 1)
+                .overlay(
+                    Text("Cannot share this comment :(")
+                )
+                .frame(height: 50)
+                .padding(.horizontal, 10)
+        }
     }
+}
+
+#Preview {
+    WholeScreenCommentView(comment: Comment(author: "author", created: 100111010, body: "comment", ups: 3, downs: 1, id: "123", permalink: "12345"))
 }

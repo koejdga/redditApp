@@ -33,6 +33,7 @@ class MyFileManager {
     }
 
     func writeToFile(post: Post) {
+//        TODO: I guess I can use readFromFile here
         var savedPosts: [Post] = []
 
         if let data = try? Data(contentsOf: savedPostsFileURL),

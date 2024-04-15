@@ -80,7 +80,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IM7-W5-kNh" userLabel="Bookmark Button">
-                    <rect key="frame" x="331.66666666666669" y="-16" width="46.333333333333314" height="70.333333333333329"/>
+                    <rect key="frame" x="331.66666666666669" y="-19.666666666666668" width="46.333333333333314" height="74"/>
                     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" image="bookmark" catalog="system"/>
@@ -99,7 +99,7 @@
                     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                     <state key="normal" title=" Share" image="square.and.arrow.up.fill" catalog="system">
-                        <color key="titleColor" systemColor="darkTextColor"/>
+                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
                         <action selector="sharePost" destination="-1" eventType="touchUpInside" id="MW4-Sn-lbN"/>
@@ -115,10 +115,10 @@
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWy-Hu-l12">
                     <rect key="frame" x="172" y="274" width="49.333333333333343" height="22"/>
-                    <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                     <state key="normal" title=" 85" image="text.bubble.fill.rtl" catalog="system">
-                        <color key="titleColor" systemColor="darkTextColor"/>
+                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
                         <action selector="commentButtonTapped:" destination="-1" eventType="touchUpInside" id="TbZ-ev-3OE"/>
@@ -166,9 +166,6 @@
         <image name="placeholder-image" width="580" height="435"/>
         <image name="square.and.arrow.up.fill" catalog="system" width="115" height="128"/>
         <image name="text.bubble.fill.rtl" catalog="system" width="128" height="110"/>
-        <systemColor name="darkTextColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
