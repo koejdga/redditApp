@@ -17,6 +17,8 @@ class PostDetailsViewController: UIViewController, CommentsDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure(with: delegate?.post)
+        deviceOrientationDidChange()
+        NotificationCenter.default.addObserver(self, selector: #selector(deviceOrientationDidChange), name: UIDevice.orientationDidChangeNotification, object: nil)
 
         print(delegate?.post?.id ?? "")
 
@@ -34,6 +36,22 @@ class PostDetailsViewController: UIViewController, CommentsDelegate {
         ])
 
         swiftUIViewController.didMove(toParent: self)
+    }
+
+    @objc private func deviceOrientationDidChange() {
+        if UIDevice.current.orientation.isPortrait {
+            postView.isHidden = false
+            let heightConstraint = postView.heightAnchor.constraint(equalToConstant: 300)
+            postView.addConstraint(heightConstraint)
+        } else {
+            postView.isHidden = true
+            let heightConstraint = postView.heightAnchor.constraint(equalToConstant: 0)
+            postView.addConstraint(heightConstraint)
+        }
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 
     private func configure(with post: Post?) {
