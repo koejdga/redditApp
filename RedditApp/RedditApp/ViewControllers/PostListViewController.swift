@@ -82,8 +82,7 @@ class PostListViewController: UIViewController, UITableViewDataSource, PostViewD
     // MARK: - Show posts
 
     func getAndLoadPosts() {
-        let savedPosts = MyFileManager.manager.readFromFile()
-
+        let savedPosts = MyFileManager.manager.savedPosts
         postsGetter.getRedditPosts(subreddit: subreddit, limit: limit, after: lastAfter) { [weak self] result in
             switch result {
             case .success(var posts):
@@ -111,7 +110,7 @@ class PostListViewController: UIViewController, UITableViewDataSource, PostViewD
     @objc func showSavedPosts() {
         showOnlySavedPosts = !showOnlySavedPosts
         if showOnlySavedPosts {
-            posts = MyFileManager.manager.readFromFile()
+            posts = MyFileManager.manager.savedPosts
             tableView.reloadData()
         }
 
@@ -193,8 +192,7 @@ class PostListViewController: UIViewController, UITableViewDataSource, PostViewD
     // MARK: - UISearchBarDelegate
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        let savedPosts = MyFileManager.manager.readFromFile()
-
+        let savedPosts = MyFileManager.manager.savedPosts
         if searchText.isEmpty {
             posts = savedPosts
         } else {

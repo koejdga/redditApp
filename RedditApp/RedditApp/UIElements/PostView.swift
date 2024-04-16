@@ -34,9 +34,9 @@ class PostView: UIView {
             post.saved = !post.saved
 
             if post.saved {
-                MyFileManager.manager.writeToFile(post: post)
+                MyFileManager.manager.addSavedPost(post: post)
             } else {
-                MyFileManager.manager.removeFromFile(post: post)
+                MyFileManager.manager.removeSavedPost(post: post)
             }
 
             let buttonImage = post.saved ? UIImage(systemName: "bookmark.fill") : UIImage(systemName: "bookmark")
@@ -140,7 +140,7 @@ class PostView: UIView {
             if post.saved { return }
 
             post.saved = true
-            MyFileManager.manager.writeToFile(post: post)
+            MyFileManager.manager.addSavedPost(post: post)
             let buttonImage = UIImage(systemName: "bookmark.fill")
             saveButton.setImage(buttonImage, for: .normal)
             self.post = post
