@@ -93,6 +93,7 @@ class PostView: UIView {
     // MARK: - Show Bookmark
 
     @objc func didTapView(_ sender: UITapGestureRecognizer) {
+        isUserInteractionEnabled = false
         DispatchQueue.main.asyncAfter(deadline: .now()) {
             self.bookmarkView.isHidden = false
         }
@@ -104,6 +105,8 @@ class PostView: UIView {
                 options: .transitionCrossDissolve
             ) { [weak self] in
                 self?.bookmarkView.isHidden = true
+            } completion: { [weak self] _ in
+                self?.isUserInteractionEnabled = true
             }
         }
 

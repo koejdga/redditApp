@@ -45,9 +45,14 @@ class PostListViewController: UIViewController, UITableViewDataSource, PostViewD
         super.viewDidLoad()
 
         title = "/r/\(subreddit)"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "bookmark.circle"), style: .plain, target: self, action: #selector(showSavedPosts))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "bookmark.circle"),
+            style: .plain,
+            target: self,
+            action: #selector(showSavedPosts)
+        )
 
-//        TODO: move this to another file maybe (separate view or i don't know
+//        TODO: move this to another file maybe (separate view or i don't know)
         let button = UIButton(type: .custom)
         button.tintColor = .systemYellow
         let iconImage = UIImage(systemName: "circle.fill")
@@ -117,17 +122,24 @@ class PostListViewController: UIViewController, UITableViewDataSource, PostViewD
         searchBar.isHidden = !searchBar.isHidden
 
         if showOnlySavedPosts {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "bookmark.circle.fill"), style: .plain, target: self, action: #selector(showSavedPosts))
+            navigationItem.rightBarButtonItem = UIBarButtonItem(
+                image: UIImage(systemName: "bookmark.circle.fill"),
+                style: .plain,
+                target: self,
+                action: #selector(showSavedPosts)
+            )
         } else {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "bookmark.circle"), style: .plain, target: self, action: #selector(showSavedPosts))
+            navigationItem.rightBarButtonItem = UIBarButtonItem(
+                image: UIImage(systemName: "bookmark.circle"),
+                style: .plain,
+                target: self,
+                action: #selector(showSavedPosts)
+            )
+            searchBar.resignFirstResponder()
         }
     }
 
     // MARK: - Swipe and Spinner
-
-    @objc func dismissKeyboard() {
-        searchBar.resignFirstResponder()
-    }
 
     @objc func handleSwipe(_ gestureRecognizer: UIPanGestureRecognizer) {
         if gestureRecognizer.state == .began {
