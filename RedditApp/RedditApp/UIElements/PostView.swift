@@ -59,7 +59,7 @@ class PostView: UIView {
 
     private var post: Post?
     weak var delegate: PostViewDelegate?
-    public var getPost: Post? {
+    var getPost: Post? {
         post
     }
 

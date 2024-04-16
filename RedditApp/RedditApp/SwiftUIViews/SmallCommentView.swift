@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SmallCommentView: View {
-    let comment: Comment
+    private let comment: Comment
     @State private var showingAlert: Bool = false
 
     init(comment: Comment) {

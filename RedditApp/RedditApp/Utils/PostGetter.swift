@@ -10,7 +10,7 @@ import Foundation
 class PostsGetter {
     var isPaginating = false
 
-    struct RedditPostUrl {
+    private struct RedditPostUrl {
 //        Example: https://www.reddit.com/r/ios/top.json?limit=1
         let startingPart = "https://www.reddit.com/r"
         var subreddit: String
@@ -35,12 +35,6 @@ class PostsGetter {
 
             return String(parameters.dropLast())
         }
-    }
-
-    enum NetworkError: Error {
-        case invalidURL
-        case noData
-        case notDecoded
     }
 
     func getRedditPosts(subreddit: String, limit: Int?, after: String?, completion: @escaping (Result<[Post], NetworkError>) -> Void) {

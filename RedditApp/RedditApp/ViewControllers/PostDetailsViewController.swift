@@ -36,7 +36,7 @@ class PostDetailsViewController: UIViewController, CommentsDelegate {
         swiftUIViewController.didMove(toParent: self)
     }
 
-    func configure(with post: Post?) {
+    private func configure(with post: Post?) {
         if let post = post {
             postView.configure(with: post)
         }

@@ -8,9 +8,14 @@
 import SwiftUI
 
 struct CommentsView: View {
-    var delegate: CommentsDelegate?
-    @State var comments: [Comment] = []
-    weak var navigationController: UINavigationController?
+    private var delegate: CommentsDelegate?
+    @State private var comments: [Comment] = []
+    private weak var navigationController: UINavigationController?
+
+    init(delegate: CommentsDelegate? = nil, navigationController: UINavigationController? = nil) {
+        self.delegate = delegate
+        self.navigationController = navigationController
+    }
 
     var body: some View {
         VStack(spacing: 0) {

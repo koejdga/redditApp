@@ -11,7 +11,7 @@ import Foundation
 class CommentGetter {
     var isPaginating = false
 
-    struct RedditCommentUrl {
+    private struct RedditCommentUrl {
 //        Example: https://www.reddit.com/r/ios/comments/1bi2gal/.json
         let startingPart = "https://www.reddit.com/r"
         var subreddit: String
@@ -20,12 +20,6 @@ class CommentGetter {
         var url: String {
             return "\(startingPart)/\(subreddit)/comments/\(postId)/.json"
         }
-    }
-
-    enum NetworkError: Error {
-        case invalidURL
-        case noData
-        case notDecoded
     }
 
     func getRedditComments(subreddit: String?, postId: String?, completion: @escaping (Result<[Comment], NetworkError>) -> Void) {

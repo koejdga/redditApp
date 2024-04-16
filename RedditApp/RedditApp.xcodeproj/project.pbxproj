@@ -19,7 +19,7 @@
 		2F7168CA2B7F96AB009C17F7 /* PostGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7168C92B7F96AB009C17F7 /* PostGetter.swift */; };
 		2F7624A12BCDB86A002A79A9 /* NetworkChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7624A02BCDB86A002A79A9 /* NetworkChecker.swift */; };
 		2F7624A32BCDCD24002A79A9 /* SmallCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7624A22BCDCD24002A79A9 /* SmallCommentView.swift */; };
-		2F7624A52BCDE845002A79A9 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7624A42BCDE845002A79A9 /* ColorExtension.swift */; };
+		2F7624A52BCDE845002A79A9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7624A42BCDE845002A79A9 /* Constants.swift */; };
 		2F98306A2B7AE95A00FFF6B5 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 2F9830692B7AE95A00FFF6B5 /* SDWebImage */; };
 		2F98306C2B7AE95A00FFF6B5 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2F98306B2B7AE95A00FFF6B5 /* SDWebImageMapKit */; };
 		2FB965E12B8C0B8300CB72B1 /* MyFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB965E02B8C0B8300CB72B1 /* MyFileManager.swift */; };
@@ -44,7 +44,7 @@
 		2F7168C92B7F96AB009C17F7 /* PostGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostGetter.swift; sourceTree = "<group>"; };
 		2F7624A02BCDB86A002A79A9 /* NetworkChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkChecker.swift; sourceTree = "<group>"; };
 		2F7624A22BCDCD24002A79A9 /* SmallCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallCommentView.swift; sourceTree = "<group>"; };
-		2F7624A42BCDE845002A79A9 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		2F7624A42BCDE845002A79A9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2FB965E02B8C0B8300CB72B1 /* MyFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFileManager.swift; sourceTree = "<group>"; };
 		2FC6F3D52B7A40E300485F8D /* RedditApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RedditApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FC6F3D82B7A40E300485F8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +91,7 @@
 		2F7168CC2B7F984F009C17F7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2F7624A42BCDE845002A79A9 /* Constants.swift */,
 				2F399B022BC493C90054D1F2 /* Comment.swift */,
 				2F3214C52B7EF29C00FA6C32 /* Post.swift */,
 			);
@@ -104,7 +105,6 @@
 				2F7168C92B7F96AB009C17F7 /* PostGetter.swift */,
 				2FB965E02B8C0B8300CB72B1 /* MyFileManager.swift */,
 				2F7624A02BCDB86A002A79A9 /* NetworkChecker.swift */,
-				2F7624A42BCDE845002A79A9 /* ColorExtension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -243,7 +243,7 @@
 				2FC6F3D92B7A40E300485F8D /* AppDelegate.swift in Sources */,
 				2F7168CA2B7F96AB009C17F7 /* PostGetter.swift in Sources */,
 				2F3214C22B7EDFF700FA6C32 /* PostView.swift in Sources */,
-				2F7624A52BCDE845002A79A9 /* ColorExtension.swift in Sources */,
+				2F7624A52BCDE845002A79A9 /* Constants.swift in Sources */,
 				2F399B052BC493D40054D1F2 /* CommentGetter.swift in Sources */,
 				2F3214C62B7EF29C00FA6C32 /* Post.swift in Sources */,
 				2F399B032BC493C90054D1F2 /* Comment.swift in Sources */,

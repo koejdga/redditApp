@@ -8,7 +8,8 @@
 import UIKit
 
 class PostTableViewCell: UITableViewCell {
-    @IBOutlet var postView: PostView!
+    weak var postViewDelegate: PostViewDelegate?
+    @IBOutlet private var postView: PostView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,6 +26,7 @@ class PostTableViewCell: UITableViewCell {
     }
 
     func configure(with post: Post) {
+        postView.delegate = postViewDelegate
         postView.configure(with: post)
     }
 }

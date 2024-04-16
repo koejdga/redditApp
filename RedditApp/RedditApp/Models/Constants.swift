@@ -17,7 +17,8 @@ extension Color {
     }
 }
 
-enum CustomColors: String {
-    case theme = "ThemeColor"
-    case grey = "GreyColor"
+enum NetworkError: Error {
+    case invalidURL
+    case noData
+    case notDecoded
 }

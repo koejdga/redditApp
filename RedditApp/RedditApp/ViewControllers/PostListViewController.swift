@@ -10,7 +10,7 @@ import UIKit
 class PostListViewController: UIViewController, UITableViewDataSource, PostViewDelegate, SelectedPostDelegate, UIScrollViewDelegate, UISearchBarDelegate, UIGestureRecognizerDelegate {
     // MARK: - Static
 
-    enum Const {
+    private enum Const {
         static let cellReuseIdentifier = "reddit_post_cell"
         static let segueIdentifier = "go_to_post_details"
     }
@@ -22,15 +22,15 @@ class PostListViewController: UIViewController, UITableViewDataSource, PostViewD
 
     // MARK: - Properties
 
-    let postsGetter = PostsGetter()
-    var posts: [Post] = []
-    var lastSelectedPost: Post?
-    let subreddit: String = "ios"
-    var lastAfter: String? {
+    private let postsGetter = PostsGetter()
+    private var posts: [Post] = []
+    private var lastSelectedPost: Post?
+    private let subreddit: String = "ios"
+    private var lastAfter: String? {
         return posts.last?.after
     }
 
-    var showOnlySavedPosts = false {
+    private var showOnlySavedPosts = false {
         didSet {
             if !showOnlySavedPosts {
                 posts = []
@@ -39,7 +39,7 @@ class PostListViewController: UIViewController, UITableViewDataSource, PostViewD
         }
     }
 
-    let limit = 5
+    private let limit = 5
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +61,6 @@ class PostListViewController: UIViewController, UITableViewDataSource, PostViewD
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
 
         var firstTime = true
-
         _ = NetworkChecker(onNetworkAvailable: {
             DispatchQueue.main.async { [weak self] in
                 self?.getAndLoadPosts()
@@ -86,7 +85,7 @@ class PostListViewController: UIViewController, UITableViewDataSource, PostViewD
 
     // MARK: - Show posts
 
-    func getAndLoadPosts() {
+    private func getAndLoadPosts() {
         let savedPosts = MyFileManager.manager.savedPosts
         postsGetter.getRedditPosts(subreddit: subreddit, limit: limit, after: lastAfter) { [weak self] result in
             switch result {
@@ -112,7 +111,7 @@ class PostListViewController: UIViewController, UITableViewDataSource, PostViewD
         }
     }
 
-    @objc func showSavedPosts() {
+    @objc private func showSavedPosts() {
         showOnlySavedPosts = !showOnlySavedPosts
         if showOnlySavedPosts {
             posts = MyFileManager.manager.savedPosts
@@ -141,7 +140,7 @@ class PostListViewController: UIViewController, UITableViewDataSource, PostViewD
 
     // MARK: - Swipe and Spinner
 
-    @objc func handleSwipe(_ gestureRecognizer: UIPanGestureRecognizer) {
+    @objc private func handleSwipe(_ gestureRecognizer: UIPanGestureRecognizer) {
         if gestureRecognizer.state == .began {
             _ = gestureRecognizer.translation(in: view)
             searchBar.resignFirstResponder()
@@ -180,8 +179,8 @@ class PostListViewController: UIViewController, UITableViewDataSource, PostViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Const.cellReuseIdentifier, for: indexPath) as! PostTableViewCell
         if !posts.isEmpty {
+            cell.postViewDelegate = self
             cell.configure(with: posts[indexPath.row])
-            cell.postView.delegate = self
         }
 
         return cell
