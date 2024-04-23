@@ -63,41 +63,32 @@
                         </label>
                     </subviews>
                 </stackView>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder-image" translatesAutoresizingMaskIntoConstraints="NO" id="a2J-rg-C3x">
-                    <rect key="frame" x="0.0" y="89.666666666666686" width="393" height="180"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="placeholder-image" translatesAutoresizingMaskIntoConstraints="NO" id="a2J-rg-C3x">
+                    <rect key="frame" x="0.0" y="60" width="393" height="208"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="180" id="ghb-Zy-wFy"/>
-                    </constraints>
                 </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="arrowshape.up.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="PlW-in-hDl">
-                    <rect key="frame" x="14.999999999999998" y="275" width="19.333333333333329" height="20"/>
+                    <rect key="frame" x="14.999999999999998" y="273.33333333333331" width="19.333333333333329" height="21.666666666666686"/>
                     <color key="tintColor" name="MySecondaryColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="22" id="irz-Ne-Wsi"/>
+                    </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.0k" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mF2-zf-LkW">
-                    <rect key="frame" x="41.333333333333336" y="269.66666666666669" width="30.333333333333336" height="30.333333333333314"/>
+                    <rect key="frame" x="41.333333333333336" y="268" width="30.333333333333336" height="32"/>
                     <color key="tintColor" name="MySecondaryColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" name="MySecondaryColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IM7-W5-kNh" userLabel="Bookmark Button">
-                    <rect key="frame" x="331.66666666666669" y="-19.666666666666668" width="46.333333333333314" height="74"/>
-                    <color key="tintColor" name="MySecondaryColor"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" image="bookmark" catalog="system"/>
-                    <connections>
-                        <action selector="saveOrUnsavePostWithButton:" destination="-1" eventType="touchUpInside" id="zqo-dg-3yY"/>
-                    </connections>
-                </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E0v-IP-MJ5">
-                    <rect key="frame" x="15" y="54.333333333333336" width="363" height="25.333333333333336"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E0v-IP-MJ5">
+                    <rect key="frame" x="15" y="24.666666666666671" width="363" height="25.333333333333329"/>
                     <fontDescription key="fontDescription" type="system" pointSize="21"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMt-me-o3e">
-                    <rect key="frame" x="308" y="273.66666666666669" width="70" height="22.333333333333314"/>
+                    <rect key="frame" x="308" y="273" width="70" height="22.333333333333314"/>
                     <color key="tintColor" name="MySecondaryColor"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                     <state key="normal" title=" Share" image="square.and.arrow.up.fill" catalog="system">
@@ -116,7 +107,7 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RWy-Hu-l12">
-                    <rect key="frame" x="172" y="274" width="49.333333333333343" height="22"/>
+                    <rect key="frame" x="172" y="273" width="49.333333333333343" height="22"/>
                     <color key="tintColor" name="MySecondaryColor"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                     <state key="normal" title=" 85" image="text.bubble.fill.rtl" catalog="system">
@@ -124,6 +115,15 @@
                     </state>
                     <connections>
                         <action selector="commentButtonTapped:" destination="-1" eventType="touchUpInside" id="TbZ-ev-3OE"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IM7-W5-kNh" userLabel="Bookmark Button">
+                    <rect key="frame" x="331.66666666666669" y="-9.6666666666666661" width="46.333333333333314" height="34.333333333333336"/>
+                    <color key="tintColor" name="MySecondaryColor"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" image="bookmark" catalog="system"/>
+                    <connections>
+                        <action selector="saveOrUnsavePostWithButton:" destination="-1" eventType="touchUpInside" id="zqo-dg-3yY"/>
                     </connections>
                 </button>
             </subviews>
@@ -169,7 +169,7 @@
         <image name="square.and.arrow.up.fill" catalog="system" width="115" height="128"/>
         <image name="text.bubble.fill.rtl" catalog="system" width="128" height="110"/>
         <namedColor name="MySecondaryColor">
-            <color red="0.30342891497279512" green="0.30411273388309579" blue="0.31454771817332572" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.30300000309944153" green="0.30399999022483826" blue="0.31499999761581421" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
